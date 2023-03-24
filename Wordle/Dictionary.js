@@ -16,7 +16,7 @@ export class Dictionary {
         ).sort(Intl.Collator().compare);
 
         this.dictionary = allWords;
-        this.dictionary = [...new Set(allWords)]; // Set is unique
+        this.dictionary = [...new Set(allWords)]; // Set is a collection of unique entries
     
         console.log(`Dictionary: ${this.dictionary}`);
 

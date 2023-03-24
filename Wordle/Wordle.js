@@ -43,14 +43,35 @@ class Wordle {
     async playGame(){
      
         let target = this.dictionary.getRandomWord();
+        let guess = await this.prompt('Please make your guess: ');
+        guess = guess.toLowerCase();
+
+        let indicators = [...guess].map(
+            (guessChar, index) => {
+              if ( index > this.target.length ) {
+                  return ">"; // indicator we're off the end
+              }
+              let targetChar = this.target.charAt(index);
+              if ( guessChar === targetChar) {
+                  return targetChar;
+              } 
+              return  ( this.target.indexOf(guessChar) >= 0 ) ? guessChar.toLowerCase() : " "; 
+            }
+        );
+
+        console.log(indicators);
         
-        console.log(`Apologies, guessing is not yet implemented `);
+       if (target === guess) {
+        console.log(`Congratulations, you win! The target word was ${target} `);
+       }
         console.log(`The target word was ${target} `); 
     }
 }
-
-
-
+    // need to stop the game from automatically ending after every guess. Also a counter for guess totals, 6 is the most allowed before losing?
+    // need to compare the user's guess to the target word and feedback which letters and positions are correct. I assume this needs a lookahead?
 
 let wordle = new Wordle();
 wordle.runWordle();
+
+
+
