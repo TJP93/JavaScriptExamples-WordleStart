@@ -6,7 +6,7 @@ export class Dictionary {
     constructor(filePath = "Wonder.txt") {
         
         const data = readFileSync(filePath, 'utf-8');
-        const wordRegexp = /\b\w+\b/g;
+        const wordRegexp = /\b[a-z]{5}\b/gi;
 
         // matchAll returns an array of Matches 
         // each Match is an array, the first item is the matched string
@@ -16,7 +16,7 @@ export class Dictionary {
         ).sort(Intl.Collator().compare);
 
         this.dictionary = allWords;
-        //this.dictionary = [...new Set(allWords)];
+        this.dictionary = [...new Set(allWords)]; // Set is unique
     
         console.log(`Dictionary: ${this.dictionary}`);
 
