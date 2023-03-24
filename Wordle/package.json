@@ -1,0 +1,12 @@
+{
+  "name": "wordle",
+  "version": "1.0.0",
+  "description": "Wordle command line game, a RegExp exercise",
+  "main": "Wordle.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dave Artus",
+  "license": "ISC"
+}
